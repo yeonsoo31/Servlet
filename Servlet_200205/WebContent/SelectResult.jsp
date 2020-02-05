@@ -9,7 +9,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>DB 조회 내용 출력</h3>
+	<h3>DB 조회 내용 출력.</h3>
 	<c:forEach var="result2" items="${selectResult}">
 		${result2} <br>
 	</c:forEach>

@@ -12,7 +12,7 @@ function selectDB(){
 </script>
 </head>
 <body>
-<h2>저장 성공</h2>
+<h2>저장 성공.</h2>
 <h2>DB 내용 조회하기</h2>
 <a href="selectDB">DB 조회 링크</a>
 <button onclick="selectDB()">DB 조회</button>

@@ -5,7 +5,7 @@ import static db.JdbcUtil.*;
 import dao.DAO;
 
 public class InsertService {
-
+//
 	public boolean insertDB(String name) {
 		DAO dao = DAO.getInstance();
 		Connection con = getConnection();

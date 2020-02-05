@@ -6,7 +6,7 @@ import javax.naming.*;
 import java.util.*;
 import static db.JdbcUtil.*;
 
-public class JdbcUtil {
+public class JdbcUtil {//
 
 	public static Connection getConnection() {
 		Connection con = null;
