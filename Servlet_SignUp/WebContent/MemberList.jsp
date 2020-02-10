@@ -21,7 +21,7 @@ border:1px solid black;
 		<tr>
 			<th>ID</th><th>PASSWORD</th><th>NAME</th>
 			<th>BIRTH</th><th>GENDER</th><th>EMAIL</th>
-			<th>상세조회</th><th>탈퇴</th>
+			<th>상세조회</th><th>회원탈퇴</th>
 		</tr>
 	<c:forEach var="memberList" items="${memberList}">
 		<tr>
@@ -32,6 +32,7 @@ border:1px solid black;
 			<td>${memberList.gender}</td>
 			<td>${memberList.email}</td>
 			<td><a href="memberView?id=${memberList.id}">조회</a></td>
+			<td><a href="memberDelete?id=${memberList.id}">삭제</a></td>
 		</tr>
 	</c:forEach>
 	</table>

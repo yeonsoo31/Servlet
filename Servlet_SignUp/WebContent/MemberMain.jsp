@@ -9,7 +9,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
 <title>Insert title here</title>
 	<script>
 	function logout(){
-		location.href="MemberLogout";
+		location.href="memberLogout";
 	}
 	function memberModify(){
 		location.href="MemberModify.jsp";

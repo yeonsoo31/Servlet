@@ -9,6 +9,17 @@
 	function main(){
 		location.href="Main.jsp";
 	}
+	function memberModify(){
+		var passwordConfirm = document.getElementById("password").value;
+		var password = '${memberModify.password}';
+		//console.log(paswordConfirm);
+		//console.log(pasword);
+		if(password==passwordConfirm){
+			modifyForm.submit();
+		} else {
+			alert('비밀번호가 틀립니다.');
+		}
+	}
 </script>
 </head>
 <body>

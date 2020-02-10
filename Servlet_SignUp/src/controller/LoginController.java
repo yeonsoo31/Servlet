@@ -30,8 +30,8 @@ public class LoginController extends HttpServlet {
 		 
     	MemberService memberService = new MemberService();
     	
-    	boolean insertResult = memberService.memberLogin(member); 
-    	if(insertResult) {
+    	boolean loginResult = memberService.memberLogin(member); 
+    	if(loginResult) {
     		HttpSession session=request.getSession();
     		session.setAttribute("loginId", member.getId());
     		response.sendRedirect("MemberMain.jsp");

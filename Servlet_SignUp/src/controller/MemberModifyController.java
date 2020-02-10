@@ -22,7 +22,7 @@ public class MemberModifyController extends HttpServlet {
 
     protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-    	String id, password, email;
+		String id, password, email;
     	id = request.getParameter("id");
     	password = request.getParameter("password");
     	email = request.getParameter("email");

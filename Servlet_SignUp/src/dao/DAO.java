@@ -90,6 +90,10 @@ public class DAO {
 		}
 		return memberList;
 	}
+	
+	
+	
+	
 	public MemberDTO memberView(String id) {
 		MemberDTO member = new MemberDTO();
 		String sql = "SELECT * FROM MEMBER WHERE ID = ?";
@@ -114,6 +118,8 @@ public class DAO {
 		return member;
 	}
 	
+	
+	
 	public int memberModify(String id, String password, String email) {
 		int result = 0;
 		String sql = "UPDATE MEMBER SET PASSWORD=?, EMAIL=? WHERE ID=?";
@@ -130,6 +136,20 @@ public class DAO {
 			close(rs);
 		}
 		return result;
+	}
+	public int memberDelete(String deleteId) {
+		String sql = "DELETE FROM MEMBER WHERE ID = ?";
+		int deleteResult = 0;
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, deleteId);
+			deleteResult = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return deleteResult;
 	}
 	
 	

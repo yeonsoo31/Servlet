@@ -25,7 +25,6 @@ public class MemberListController extends HttpServlet {
 		MemberListService memberListService = new MemberListService();
 		List<MemberDTO> memberList = new ArrayList<MemberDTO>();
 		memberList = memberListService.memberList();
-		
 		request.setAttribute("memberList", memberList);
 		RequestDispatcher dispatcher =
 			request.getRequestDispatcher("MemberList.jsp");

@@ -5,8 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+function main(){
+	location.href="Main.jsp";
+}
+</script>
 </head>
 <body>
 	<h2>MemberModifyFail.jsp 파일</h2>
+	<button onclick="main()">메인화면</button>
 </body>
 </html>
