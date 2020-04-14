@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Member">
+	<insert id="signUp" parameterType="member">
+		INSERT INTO MEMBERTABLE(MID,MPASSWORD,MNAME,MBIRTH,MGENDER,MEMAIL,KAKAOID,NAVERID)
+		VALUES(#{mid}, #{mpassword}, #{mname}, #{mbirth}, #{mgender}, #{memail},'','')
+	</insert>
+	
+	<insert id="kakaoMemberJoin" parameterType="member">
+		INSERT INTO MEMBERTABLE(MID,MPASSWORD,MNAME,MBIRTH,MGENDER,MEMAIL,KAKAOID,NAVERID)
+		VALUES(#{mid}, '', #{mname}, #{mbirth}, #{mgender}, #{memail}, #{kakaoId},'')
+	</insert>
+	
+	<insert id="naverMemberJoin" parameterType="member">
+		INSERT INTO MEMBERTABLE(MID,MPASSWORD,MNAME,MBIRTH,MGENDER,MEMAIL,KAKAOID,NAVERID)
+		VALUES(#{mid}, '', #{mname}, #{mbirth}, #{mgender}, #{memail},'',#{naverId})
+	</insert>
+	
+	<select id="kakaoLogin" parameterType="String" resultType="member">
+		SELECT * FROM MEMBERTABLE WHERE KAKAOID=#{kakaoId}
+	</select>
+	
+	<select id="naverLogin" parameterType="String" resultType="member">
+		SELECT * FROM MEMBERTABLE WHERE NAVERID=#{naverId}
+	</select>
+	
+	<select id="memberLogin" parameterType="member" resultType="String">
+		SELECT MID FROM MEMBERTABLE WHERE MID=#{mid} AND MPASSWORD=#{mpassword}
+	</select>
+	
+	<select id="memberList" resultType="member">
+		SELECT * FROM MEMBERTABLE
+	</select>
+	
+	<select id="memberView" parameterType="String" resultType="member">
+		SELECT * FROM MEMBERTABLE WHERE MID=#{mid}
+	</select>
+	
+	<delete id="memberDelete" parameterType="String">
+		DELETE FROM MEMBERTABLE WHERE MID=#{mid}
+	</delete>
+	
+	<update id="memberModify" parameterType="member">
+		UPDATE MEMBERTABLE SET MNAME=#{mname}, MEMAIL=#{memail} WHERE MID=#{mid}
+	</update>
+	
+	<select id="idOverlap" parameterType="String" resultType="String">
+		SELECT MID FROM MEMBERTABLE WHERE MID=#{mid}
+	</select>
+</mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
