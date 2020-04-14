@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="Board"> 
+ 	<select id="boardList" resultType="board">
+ 		SELECT * FROM BOARDTABLE
+ 	</select>
+
+ 	<insert id="boardPost" parameterType="board">
+ 		INSERT INTO BOARDTABLE(BNUMBER,BWRITER,BTITLE,BCONTENTS,BDATE,BHITS)
+ 			VALUES(BNUMBER_SEQ.nextval, #{bwriter}, #{btitle}, #{bcontents}, SYSDATE, 0)
+ 	</insert>
+ 	
+ 	<select id="boardView" parameterType="int" resultType="board">
+ 		SELECT * FROM BOARDTABLE WHERE BNUMBER=#{bnumber}
+ 	</select>
+ 	
+ 	<select id="modifyForm" parameterType="int" resultType="board">
+ 		SELECT * FROM BOARDTABLE WHERE BNUMBER=#{bnumber}
+ 	</select>
+ 	
+ 	<update id="boardModify" parameterType="board">
+ 		UPDATE BOARDTABLE SET BTITLE=#{btitle}, BWRITER=#{bwriter}, BCONTENTS=#{bcontents} WHERE BNUMBER=#{bnumber}
+ 	</update>
+ 	
+ 	<delete id="boardDelete" parameterType="int">
+ 		DELETE FROM BOARDTABLE WHERE BNUMBER=#{bnumber}
+ 	</delete>
+ 	
+ 	<select id="boardListPaging" parameterType="page" resultType="board">
+ 		SELECT * FROM BOARDLISTVIEW WHERE RN BETWEEN #{startrow} AND #{endrow}
+ 	</select>
+ 	
+ 	<select id="listCount" resultType="int">
+ 		SELECT COUNT(*) FROM BOARDLISTVIEW
+ 	</select>
+ 	
+ 	<insert id="commentWrite" parameterType="String">
+ 		INSERT INTO COMMENTTABLE(COMMENTTABLE_SEQ.nextval, #{cbnumber}, #{cwriter}, #{ccontents})
+ 	</insert>
+ 	
+ 	<insert id="boardWriteFile" parameterType="board">
+ 		INSERT INTO BOARDTABLE(BNUMBER,BWRITER,BTITLE,BCONTENTS,BDATE,BHITS,BFILE)
+ 			VALUES(BNUMBER_SEQ.nextval, #{bwriter}, #{btitle}, #{bcontents}, SYSDATE, 0, #{bfile})
+ 	</insert>
+ 	
+
+ 	
+ </mapper>
